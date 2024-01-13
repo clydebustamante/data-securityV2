@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polyalphabetical Text</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<style>
+    .ahem{
+        background: rgba(255, 255, 255, 0.04);
+			border-radius: 16px;
+			box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+			backdrop-filter: blur(4px);
+			-webkit-backdrop-filter: blur(4px);
+			border: 1px solid rgba(255, 255, 255, 1);
+            margin: 0 10px;
+    }
+</style>
+
+<body>
+
+    <div id="preloading">
+        <div class="wrap">
+            <div class="loading">
+                <div class="bounceball"></div>
+                <div class="text">Polyalphabetic Calculator is now OPENING</div>
+            </div>
+        </div>
+    </div>
+    <a href="/src/components/index.html" class="back-button">Back to Main Page</a>
+    <div class="top-left-text"><span>Polyalphabetic <span style="color: #6E399B;">Cipher</span></span></div>
+    <div class="head">
+        <ul>
+            <li><a class="active" href="polyalpha_index.html">Home</a></li>
+            <li><a href="playfair.html">Playfair</a></li>
+            <li><a href="vigenere.html">Vigenere</a></li>
+
+        </ul>
+    </div>
+<br>
+    <div  class=" center-text">
+        <h1>Vigenere Cipher</h1>
+        <p class="ahem" style="padding: 20px 0;">The <span style="margin: 0 40px; color:#6E399B; font-size: 30px; font-family: Arial, sans-serif;"><b>Vigenere
+                    Cipher</b></span> is a method of encrypting alphabetic text using a simple form of polyalphabetic
+            substitution.
+            A key word, typically a short word or phrase, is used to determine the letter substitutions in the text.
+            It provides a stronger encryption compared to simple substitution ciphers.
+        </p>
+    </div>
+
+    <div class="pt">
+
+        <label for="message">Enter Message/Plaintext:</label>
+
+        <textarea id="message" placeholder="Enter your message"></textarea>
+
+    </div>
+    <div class="key">
+
+        <label for="key">Enter Key:</label>
+
+        <textarea id="key" placeholder="Enter key"></textarea>
+    </div>
+    <div class="res">
+        <label for="key">Result:</label>
+    </div>
+    <div class="result">
+
+        <h4 id="result">
+            </h2>
+
+    </div>
+    <div class="btn">
+        <button onclick="encrypt()" class="btn-encrypt">Encrypt</button>
+        <button onclick="decrypt()" class="btn-decrypt">Decrypt</button>
+
+    </div>
+
+
+    <div class="process-section">
+        <h2 style="margin-bottom: 20px; text-align: center;">computation Process</h2>
+
+
+        <div class="process">
+            <p id="process"></p>
+
+
+        </div>
+    </div>
+
+
+
+
+    <script>
+
+        function encrypt() {
+
+            var message = document.getElementById('message').value.toUpperCase();
+            var key = document.getElementById('key').value.toUpperCase();
+            var result = '';
+            var process = '';
+
+            for (var i = 0; i < message.length; i++) {
+                var charCode = message.charCodeAt(i);
+                var numericalValue = charCode - 65;
+
+                if (charCode >= 65 && charCode <= 90) {
+                    var keyIndex = i % key.length;
+                    var keyChar = key.charCodeAt(keyIndex) - 65;
+                    var encryptedChar = String.fromCharCode(((charCode - 65 + keyChar) % 26) + 65);
+                    result += encryptedChar;
+                    process += `Char: ${message[i]} (${numericalValue})<br>`;
+                    process += `Key: ${key[keyIndex]}<br>`;
+                    process += `Formula: (P + K) mod 26 = (${numericalValue} + ${keyChar}) mod 26<br>`;
+                    process += `Computation: (${numericalValue} + ${keyChar}) % 26 = ${(numericalValue + keyChar) % 26}<br>`;
+                    process += `Encrypted: ${encryptedChar}<br>`;
+                    process += `Solution: ${result}<br><br>`;
+                } else {
+                    result += message[i];
+                    process += `Non-alphabetic character: ${message[i]}<br>`;
+                }
+            }
+
+            document.getElementById('result').innerHTML = 'Encrypted Message: ' + result;
+            document.getElementById('process').innerHTML = 'Encryption Process:<br>' + process;
+        }
+
+
+
+
+        function decrypt() {
+
+            var message = document.getElementById('message').value.toUpperCase();
+            var key = document.getElementById('key').value.toUpperCase();
+            var result = '';
+            var process = '';
+
+            for (var i = 0; i < message.length; i++) {
+                var charCode = message.charCodeAt(i);
+                var numericalValue = charCode - 65;
+
+                if (charCode >= 65 && charCode <= 90) {
+                    var keyIndex = i % key.length;
+                    var keyChar = key.charCodeAt(keyIndex) - 65;
+                    var decryptedChar = String.fromCharCode(((charCode - 65 - keyChar + 26) % 26) + 65);
+                    result += decryptedChar;
+                    process += `Char: ${message[i]} (${numericalValue})<br>`;
+                    process += `Key: ${key[keyIndex]}<br>`;
+                    process += `Formula: (C - K) mod 26 = (${numericalValue} - ${keyChar}) mod 26<br>`;
+                    process += `Computation: (${numericalValue} - ${keyChar} + 26) % 26 = ${(numericalValue - keyChar + 26) % 26}<br>`;
+                    process += `Decrypted: ${decryptedChar}<br>`;
+                    process += `Solution: ${result}<br><br>`;
+                } else {
+                    result += message[i];
+                    process += `Non-alphabetic character: ${message[i]}<br><br>`;
+                }
+            }
+
+            document.getElementById('result').innerHTML = 'Decrypted Message: ' + result;
+            document.getElementById('process').innerHTML = 'Decryption Process:<br>' + process;
+        }
+
+        // for preloading screen
+        var loader = document.getElementById("preloading");
+
+        window.addEventListener("load", function (load) {
+            window.removeEventListener("load", load, false);
+            this.setTimeout(function () {
+                loader.style.display = "none"
+            }, 3000);
+        }, false);
+
+
+    </script>
+</body>
+
+</html>

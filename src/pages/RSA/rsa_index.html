@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>RSA Calculator</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+
+
+<body>
+    <div id="preloading">
+      <div class="wrap">
+        <div class="loading">
+          <div class="bounceball"></div>
+          <div class="text">RSA Calculator is now OPENING</div>
+        </div>
+      </div>
+    </div>
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+          <span class="close" onclick="closeModal()">&times;</span>
+          <h3>What is RSA Cipher?</h3>
+          <p>
+            RSA is a popular encryption method used to keep digital information secure. It uses two keys: a public key, which is shared openly, and a private key, which is kept secret. The public key is used for encrypting messages, and the private key is used for decrypting them. The security of RSA is based on the difficulty of factoring large numbers, making it a reliable way to protect online communication, transactions, and digital signatures.</p>
+      </div>
+  </div>
+      <a href="/src/components/index.html" class="back-button">Back to Main Page</a>
+  <div class="floating-name" id="name">CUBOL TEAM</div>
+
+  <div class="flip-container">
+    <div style="margin-top: 147px;" class="outer-container">
+      <div class="container" style="position: relative;">
+        <div id="helpButtonContainer" style=" position: absolute; top: 10px; right: 10px;">
+          <button onclick="displayHelp();" class="button-85" style="padding: 8px 12px; font-size: 12px;">?</button>
+        </div>
+        <center><img src="logo2.png" alt="" style="width: 100px;;">
+          <img src="logo3.png" alt="" style="width: 200px;;">
+          <img src="ctu1.png" alt="" style="width: 100px;;">
+        </center>
+        <h1 >RSA CALCULATOR</h1>
+        <h2>Rivest-Shamir-Adleman</h2>
+        <label for="ptInput">Plaintext:</label>
+        <input type="text" id="ptInput" placeholder="Input your Plaintext" oninput="autoExpand(this)">
+
+        <label for="pInput">Value for p:</label>
+        <input type="number" id="pInput" placeholder="Input a prime number p"
+          oninput="checkPrime('pInput', 'primeIndicatorP')">
+        <div id="primeIndicatorP"></div>
+
+        <label for="qInput">Value for q:</label>
+        <input type="number" id="qInput" placeholder="Input a prime number q"
+          oninput="checkPrime('qInput', 'primeIndicatorQ')">
+        <div id="primeIndicatorQ"></div>
+
+        <label for="eInput">Value for e:</label>
+        <input type="number" id="eInput" placeholder="Input a prime number e"
+          oninput="checkPrime('eInput', 'primeIndicatorE')">
+        <div id="primeIndicatorE"></div>
+<br>
+        <center>
+          <button onclick="calculateValues();" class="button-85">CALCULATE</button>
+        </center>
+        <div  id="imageContainer"></div>
+        <p  id="result"></p>
+      </div>
+    </div>
+
+    <div class="outer-container back-content" style="display: none;">
+      <div class="container" style="position: relative;">
+        <div id="helpButtonContainer" style="position: absolute; top: 10px; right: 10px;">
+          <button onclick="displayHelp1();" class="button-85" style="padding: 8px 12px; font-size: 12px;">?</button>
+        </div>
+        <center><img src="logo2.png" alt="" style="width: 100px;;">
+          <img src="logo3.png" alt="" style="width: 200px;;">
+          <img src="ctu1.png" alt="" style="width: 100px;;">
+        </center>
+        <h1>MODULUS CALCULATOR</h1>
+        <h2></h2>
+        <label for="dividend">Enter Dividend:</label>
+        <p style="color: #FFF;" class="small-note">NOTE: If Encryption use the value of M </p>
+        <p style="color: #fff;" class="small-note">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; If Decryption use the value of C </p>
+        <input type="number" id="dividend" placeholder="Input the dividend">
+        <label for="exponent">Enter Exponent:</label>
+        <p style="color: #fff;" class="small-note">NOTE: If Encryption use the value of E </p>
+        <p style="color: #FFF;" class="small-note">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; If Decryption use the value of D </p>
+        <input type="number" id="exponent" placeholder="Input the exponent">
+        <label for="divisor">Enter Divisor:</label>
+        <p style="color: #fff;" class="small-note">NOTE: Use the value of N </p>
+        <input type="number" id="divisor" placeholder="Input the divisor">
+        <center>
+          <button onclick="calculate()" class="button-85">CALCULATE </button>
+        </center>
+        <div class="ay" id="calculationSteps"></div>
+      </div>
+    </div>
+  </div>
+  <button onclick="toggleButton();" class="button-85" style="position: fixed; bottom: 20px; left: 20px;" id="modCalculatorBtn">Mod Calculator</button>
+
+ 
+  <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,387 @@
+
+
+* {
+  user-select: none;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Poppins',sans-serif;
+}
+
+html, body {
+    height: 100%;
+}
+
+@font-face {
+	font-family: charlieUltra;
+	src: url(..//utils/assets/fonts/charlie-display-ultra.ttf);
+}
+
+@font-face {
+	font-family: GreatSejagad;
+	src: url(../utils/assets/fonts/Great_Sejagad.ttf);
+}
+
+.container {
+	width: 1355px;
+	height: 100%;
+	margin: 0 auto;
+}
+
+.center {
+    width: 50%;
+	height: 50%;
+}
+
+.title {
+	color: #FF0550;
+	font-size: 1px;
+    padding-left: 10px;
+	font-family: GreatSejagad;
+    transform: translateY(78px);
+}
+
+.main_title {
+    color: #FEEAB7;
+    font-size: 80px;
+    font-family: charlieUltra;
+	line-height: 80px;
+}
+
+section.slider {
+    padding: 10px 0;
+    /* background: #0e0e16; */
+    background: transparent;
+    height: 100vh;
+}
+
+section.slider .title {
+    font-size: 42px;
+    position: relative;
+    top: 24px;
+}
+
+.slider-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+	margin-bottom: 50px;
+}
+
+.slide_content {
+    position: absolute;
+    bottom: 20px;
+    font-weight: normal;
+    line-height: 150%;
+    width: 100%;
+    padding: 0 30px 0px 23px;
+    text-align: center;
+}
+
+button.slider__button {
+	background: #FF0550;
+    border: 3px solid #FF0550;
+    width: 50px;
+    height: 50px;
+    font-size: 25px;
+    cursor: pointer;
+    color: #0e0e16;
+    opacity: 1 !important;
+    border-radius: 10px;
+}
+
+button.slider__button:hover {
+    border: 3px solid #FF0550;
+    background: transparent;
+    color: #FF0550;
+}
+
+.slide_content p {
+    color: #fff;
+    font-family: charlieUltra;
+    font-size: 22px;
+	letter-spacing: 1px;
+}
+.slider .btns {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.slider .btns a {
+    height: 48px;
+    width: 150px;
+    border-radius: 50px;
+    font-size: 40px;
+    padding: 0 10px;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.3s ease;
+    background: none;
+    font-family: charlieUltra;
+    color: #FEEAB7;
+	letter-spacing: 1px;
+}
+
+.slider .btns a:hover {
+    color: #FF0550;
+}
+
+.slide:hover.slide1 {
+    border: 3px solid #989181;
+}
+
+.slide:hover.slide2 {
+    border: 3px solid #DC143C;
+}
+
+.slide:hover.slide3 {
+    border: 3px solid #4d207e;
+}
+
+.slide:hover.slide4 {
+    border: 3px solid #1DA5E9;
+}
+
+.slide:hover.slide5 {
+    border: 3px solid #F13E3E;
+}
+
+.slide:hover.slide6 {
+  border: 3px solid #BB885D;
+}
+
+.slider {
+  --slider-padding: 1rem;
+  --slider-column-gap: 1rem;
+  --slide-width: 20%;
+  --slide-min-width: 15rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.slider__track {
+  display: flex;
+  overflow-x: auto;
+  -ms-scroll-snap-type: x mandatory;
+      scroll-snap-type: x mandatory;
+  padding-inline: var(--slider-padding);
+  scroll-behavior: smooth;
+  list-style-type: none;
+  padding: 0;
+  margin-right: calc(--var(slider-column-gap) * -1);
+  scrollbar-width: none;
+}
+
+.slider__track > * {
+  flex: 0 0 var(--slide-width);
+  min-width: var(--slide-min-width);
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  padding-right: var(--slider-column-gap);
+}
+
+.slider__track::-webkit-scrollbar {
+  display: none;
+}
+
+.slider__buttons {
+  margin-top: 1rem;
+}
+
+.slider__buttons [disabled] {
+  opacity: 0.5;
+}
+
+.slide {
+	display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    aspect-ratio: 1/1;
+    position: relative;
+    border: 3px solid #383c4e;
+    border-radius: 10px;
+    padding: 3px;
+}
+
+
+.slideimg {
+	 width: 100%;
+	 border-radius: 10px;
+}
+
+
+/* Responsive Media Query */
+@media (max-width: 1400px){
+	.container {
+		width: 90%;
+	}
+}
+
+@media (min-width: 1200px){
+	.menu ul {
+		display: flex;
+		justify-content: center;
+	}
+	.mob-icons {
+		display: none;
+	}
+}
+
+@media (max-width: 769px) {
+	.main_title {
+		font-size: 60px;
+		line-height: 60px;
+	}
+	.title {
+		font-size: 60px;
+	}
+}
+
+@media (max-width: 600px) {
+	.title {
+		font-size: 40px;
+	}
+	.main_title {
+		font-size: 40px;
+		line-height: 50px;
+	}
+	section.slider .title {
+		font-size: 40px;
+	}
+	button.slider__button {
+		width: 40px;
+		height: 40px;
+		font-size: 20px;
+	}
+    .slider .btns button {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 426px) {
+	.main_title {
+		font-size: 35px;
+		line-height: 35px;
+	}
+	section.slider .title {
+		font-size: 30px;
+		top: 10px;
+	}
+}
+
+
+/* for preloading tag */
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+
+#preloading{
+    background: #000;
+    background-size: 10%;
+    text-align: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    z-index: 100;
+}
+
+body {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  font-family: Montserrat;
+}
+
+.wrap {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.text {
+  color: #FEEAB7;
+  display: inline-block;
+  margin-left: 5px;
+}
+
+.bounceball {
+  position: relative;
+  display: inline-block;
+  height: 37px;
+  width: 15px;
+}
+.bounceball:before {
+  position: absolute;
+  content: "";
+  display: block;
+  top: 0;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: #FF0550;
+  transform-origin: 50%;
+  -webkit-animation: bounce 500ms alternate infinite ease;
+          animation: bounce 500ms alternate infinite ease;
+}
+
+@-webkit-keyframes bounce {
+  0% {
+    top: 30px;
+    height: 5px;
+    border-radius: 60px 60px 20px 20px;
+    transform: scaleX(2);
+  }
+  35% {
+    height: 15px;
+    border-radius: 50%;
+    transform: scaleX(1);
+  }
+  100% {
+    top: 0;
+  }
+}
+
+@keyframes bounce {
+  0% {
+    top: 30px;
+    height: 5px;
+    border-radius: 60px 60px 20px 20px;
+    transform: scaleX(2);
+  }
+  35% {
+    height: 15px;
+    border-radius: 50%;
+    transform: scaleX(1);
+  }
+  100% {
+    top: 0;
+  }
+}
+
+/* for video tag */
+.home {
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.home video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.home:before {
+  content:"";
+  position: absolute;
+  top:0;
+  right:0;
+  left:0;
+  bottom:0;
+  z-index:1;
+  background:rgba(0,0,0,.8);
+
+}

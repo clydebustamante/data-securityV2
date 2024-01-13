@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Exo" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <title>Playfair Cipher Example</title>
+
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap');
+
+*{
+    font-family: 'Kdam Thmor Pro', sans-serif;
+} 
+       body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/beau.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+            height: 100vh; 
+            /* display: flex;
+            align-items: center;
+            justify-content: center; */
+            color: white; 
+            scroll-behavior: smooth;
+            /* position: relative;
+            width: 100%; */
+            /* margin-bottom: 100px; */
+
+        }
+        .navbar{
+    /* background-color: brown; */
+    position: absolute;
+    top: 1%;
+    left: 65%;
+    /* background-color: brown; */
+    padding: 10px 30px;
+        }
+        .navbar ul li{
+    display: inline-block;
+    /* padding: 5px 50px; */
+    list-style-type: none;
+}
+.navbar ul li a{
+    text-decoration: none;
+    border-radius: 30px;
+    border: 2px solid #6E399B;
+    padding: 10px 20px;
+    font-size: 12px;
+    text-align: center;
+    color: white;
+    background-color: #6E399B;
+    display: inline-block;
+    margin-right: 10px;
+    /* box-shadow: 25px 25px 5px; */
+    
+}
+.navbar ul li a.active{
+    background-color: white;
+    color: black;
+    border: 2px solid white;
+}
+/* .navbar ul li a.active:hover{
+    background-color: brown;
+    color: white;
+    border: 2px solid white;
+    transition: 0.3s ease-in-out;
+} */
+.navbar ul li a:hover{
+    /* background-color: brown; */
+    border: 2px solid white;
+    transition: 0.3s ease-in-out;
+
+}
+.playfair{
+    position: absolute;
+    top: 18px;
+    left: 30px;
+    font-size: 24px;
+    /* font-family: Arial, sans-serif; */
+    text-transform: uppercase;
+}
+.content{
+    position: absolute;
+    top: 30%;
+    left: 10%;
+
+}
+.content p{
+    color: yellow;
+}
+.step1{
+    background-color: antiquewhite;
+    color: black;
+    padding: 5px 10px;
+    
+}
+
+
+
+.row {
+    margin: 0 auto;
+    width: auto;
+    clear: both;
+    text-align: center;
+    font-family: 'Exo';
+  }
+  
+  .letter{
+    float: left;
+    padding: 10px 30px;
+    margin: 2px;
+    font-size: 2rem;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    color: white;
+    font-weight: bold;
+    background-color: #6E399B;
+    border:  black solid 2px
+  }
+  .pc-text{
+    color: black;
+  }
+
+  .letter:hover{
+    background-color: #6E399B;
+  }
+  
+  .sub {
+    font-size: 0.8rem;
+    color: grey;
+  }
+  
+  .subtitle{
+    color: black;
+    font-weight: bold;
+  }
+
+  span{
+    color:  rgb(138, 15, 205);
+    font-weight: bold;
+  }
+  .container {
+    background-color: white;
+    padding: 20px;
+    margin: 30px auto;
+    text-align: center;
+    display: flex;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    align-content: center;
+    justify-content: space-evenly;
+    border-radius: 20px;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  #grid{
+    text-align: center;
+    align-content: space-around;
+    justify-content: space-around;
+  }
+
+  #output{
+    display: flex;
+    text-align: start;
+    align-content: flex-start;
+    justify-content: flex-start;
+  }
+  /* Github @ Sal7one */
+  #call {
+    display: inline-block;
+    background-color: #6E399B;
+    padding: 4px 30px;
+    margin: 10px;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .botrow {
+    margin: 0 auto;
+    width: 280px;
+    clear: both;
+    text-align: center;
+    font-family: 'Exo';
+  }
+  
+  
+  
+  #call:hover {
+    background-color: #6E399B;
+  }
+  
+  .dig {
+    float: left;
+    padding: 10px 20px;
+    margin: 10px;
+    width: 30px;
+    cursor: pointer;
+  }
+
+  .inputs{
+    display: block;
+    padding: 10px;
+
+  }
+  .inputs > input{
+    margin-bottom: 10px;
+    display: block;
+  }
+  /* Github @ Sal7one */
+
+
+  .actualvalue{
+    color: #6E399B;
+  }
+
+  .inputcontainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  h1 {
+    font-size: 36px;
+    margin-bottom: 24px;
+  }
+
+  .form-control {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 24px;
+  }
+
+  label {
+    font-size: 18px;
+    margin-bottom: 8px;
+  }
+
+  input[type="text"] {
+    padding: 8px;
+    font-size: 18px;
+    width: 200px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+  }
+
+  input[type="radio"] {
+    margin-right: 8px;
+  }
+
+  label span {
+    font-size: 18px;
+    margin-right: 8px;
+  }
+
+  #playbutton{
+    width: 40%;
+    background-color: #6E399B;
+    border-radius: 15px;
+    margin-bottom: 7px;
+  }
+
+  .pc-calc{
+    font-size: 36px;
+    color: #6E399B;
+  }
+
+  .back-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 15px;
+    background-color: #6E399B;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    z-index: 2;
+}
+
+    </style>
+</head>
+<body>
+  <a href="/src/components/index.html" class="back-button">Back to Main Page</a>
+<div class="playfair">
+    background-position: center;
+        Playfair <span style="color: #6E399B;">Cipher</span> 
+
+       
+    </div>
+    <div class="navbar">
+        <ul>
+            <li><a  href="polyalpha_index.html">Home</a></li>
+            <li><a class="active" href="playfair.html">Playfair</a></li>
+            <li><a href="vigenere.html">Vigenere</a></li>
+        </ul>
+    </div>
+
+    
+<div class="content">
+<!--  -->
+    <h2>What is playfair?</h2>
+
+        <ul>
+            <li>Playfair cipher also known as Playfair Square.</li>
+            <li>It is a Cryptographic technique used for manual encryption of data.</li>
+            <li>Playfair Cipher was invented by Charles Wheatstone in 1854.</li>
+            <li>This technique is quite fast and used to protect important information.</li>
+        </ul> 
+    
+    <h2>How Playfair Cipher is used?</h2>
+        <ul>
+            <li>Playfair Cipher was used by the British army during World War 1.,</li>
+            <li>Playfair algorithm is based on the use of a (5x5) matrix of letters constructed using a KEYWORD.</li>
+            <li>The letter [I and JJ is count as one letter.</li>
+       
+        </ul>
+        
+
+
+    <h2>Example</h2>
+
+
+    <p>Keyword = PLAYFAIR EXAMPLE</p>
+    <p>Plaintext = my name is pixy</p>
+        <h3>Rules:</h3>
+        <ol>
+            <li>Enter the keyword in the (5x5) matrix row-wise [left-to-right] & then [top-to-bottom].</li>
+            <li>Drop Duplicate Letters.</li>
+            <li>Fill remaining space with rest of the letters [A-Z] that were not part of KEYWORD.
+                <p><img style="width: 400px; height: 200px;" src="PLAYFAIR/key.png" alt="Keyword"></p>
+            </li>
+        </ol>
+     
+        
+      
+       
+        
+
+
+<h2>Encryption Process</h2>
+
+    <p>Plaintext: my name is pixy</p>
+
+            <ul>
+                <li> Break down the Plaintext into pairs of 2 Alphabets. Plaintext Becomes: <span class="step1" class="step1">my</span> <span class="step1" class="step1">na</span> <span class="step1" >me</span> <span class="step1" >is</span> <span class="step1" >pi</span> <span class="step1"  >xy</span>
+                
+                <p><img style="width: 180px; height: 150px;" src="PLAYFAIR/first2.jpg" alt="First">
+                <img style="width: 180px; height: 150px;" src="PLAYFAIR/second2.jpg" alt="Second">
+                <img style="width: 180px; height: 150px;" src="PLAYFAIR/third2.jpg" alt="Third"></p>
+               <p><img style="width: 180px; height: 150px;" src="PLAYFAIR/fourth2.jpg" alt="Fourth">
+                <img style="width: 180px; height: 150px;" src="PLAYFAIR/fifth2.jpg" alt="Fifth">
+                <img style="width: 180px; height: 150px;" src="PLAYFAIR/fifth2-1.jpg" alt="Fifth 2"></p>
+                <img style="width: 180px; height: 150px;" src="PLAYFAIR/six2.jpg" alt="Sixth">
+                <img style="width: 180px; height: 150px;" src="PLAYFAIR/six2-1.jpg" alt="Sixth 2">
+                </li>
+
+                <li> If both alphabets are the same or only one is left, add X after the first Alphabet. Only one means: suppose plaintext (see - se ex)</li>
+                <li> If both alphabets appear in the same row of our matrix, replace them with alphabets next to their immediate right respectively.</li>
+                <li> If both alphabets appear in the same column, replace them immediately below them respectively.</li>
+                <li> If alphabets are not in the same row/column, replace them with the text diagonally opposite to it in the row.</li><br>
+                <li> The ciphertext is <span class="step1" class="step1">xf</span> <span class="step1" class="step1">ol</span> <span class="step1" >ix</span> <span class="step1" >km</span> <span class="step1" >ib</span> <span class="step1"  >gx</span>
+                                
+            </ul>
+
+
+ <h2>Decryption Process</h2>
+    <p> - Opposite steps that we used in Encryption</p>
+
+    <p>Cipher text = XF OL IX MK IB GX</p> 
+    <ul>
+        <li> If both alphabets Appear in same Row of our matrix, Replace them with Alphabets next to their
+            immediate LEFT respectively.</li>
+        <li>If both Alphabets Appear in same Columns, replace them immediately ABOVE them respectively.</li>
+        <li>If alphabets is not in same Row / Column then replace them with the text diagonally opposite to it
+            in the row.</li>
+
+        <p><img style="width: 180px; height: 150px;" src="PLAYFAIR/1first.jpg" alt="First">
+            <img style="width: 180px; height: 150px;" src="PLAYFAIR/2second.jpg" alt="Second">
+            <img style="width: 180px; height: 150px;" src="PLAYFAIR/3third.jpg" alt="Third"></p>
+            <p><img style="width: 180px; height: 150px;" src="PLAYFAIR/2fourth.jpg" alt="Fourth">
+            <img style="width: 180px; height: 150px;" src="PLAYFAIR/2fifth.jpg" alt="Fifth">
+            <img style="width: 180px; height: 150px;" src="PLAYFAIR/2fifth-1.jpg" alt="Fifth 2"></p>
+            <img style="width: 180px; height: 150px;" src="PLAYFAIR/2six.jpg" alt="Sixth">
+            <img style="width: 180px; height: 150px;" src="PLAYFAIR/2six-1.jpg" alt="Sixth 2"><br><br><br>
+        
+            <li> The Plaintext is <span class="step1" class="step1">my</span> <span class="step1" class="step1">na</span> <span class="step1" >me</span> <span class="step1" >is</span> <span class="step1" >pi</span> <span class="step1"  >xy</span>
+            <br><br><br>
+    </ul>
+
+    <br>
+
+    <h1 class="pc-calc">TO MAKE IT EASY YOU CAN USE THE PLAYFAIR CIPHER CALCULATOR</h1>
+
+    <div class="container">
+      <div class="results">
+        <div class="inputs">
+            <div class="inputcontainer">
+                <h1 class="pc-text">Playfair Cipher Tool</h1>
+                    <div class="form-control">
+                        <label class="pc-text">Playfair Key</label>
+                        <input type="text" id="playfairkey" name="playfairkey"  />
+                      </div>
+                  <div class="form-control">
+                    <label id="typeOfText" class="pc-text"> Plain Text</label>
+                    <input  id="chiperPlain"name="plainText" type="text" />
+                  </div>
+            
+                  <div class="form-control">
+                    <label  class="pc-text"><input type="radio" name="cryptoOp" id="encrypt" value="encrypt" checked/>Encrypt</label>
+                    <label  class="pc-text"><input type="radio" name="cryptoOp" id="decrypt" value="decrypt" />Decrypt</label>
+                  </div>
+              </div>
+        </div>
+    </div>
+
+    <div class="mid">
+        <h3  class="pc-text">Letter Grid</h3>
+        <div  class="playdiv" style="display: none;">
+        <button id="playbutton">Show Corresponding text</button>
+    </div>
+        <div id="grid"></div>
+    </div>
+
+    <div class="output">
+        <h4 id="key" class="subtitle" > </h4>
+        <h4 id="plain" class="subtitle" > </h4>
+        <h4 id="plainArray" ></h4>
+        <h4 id="cipher"  class="subtitle" > </h4>
+        <h4 id="cipherArray" ></h4>
+    </div>
+    
+ </div>
+</div>
+
+<script src="minified.js"></script>
+<script > 
+// Made By Sal7one 
+</script>
+
+
+       
+</body>
+</html>

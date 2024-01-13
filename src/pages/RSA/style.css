@@ -1,0 +1,352 @@
+
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-content {
+  color: white;
+  position: relative;
+  margin: 10% auto;
+  padding: 30px;
+  width: 50%;
+
+  line-height: 25px;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 1);
+
+}
+.modal-content p{
+  text-align: justify;
+}
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+body {
+    font-family: 'Times New Roman', sans-serif;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    background-image: url(bgko.jpg) ;
+    align-items: center;
+    background-size: cover;
+    background-size: cover;
+    background-attachment: fixed;
+    justify-content: center;
+}
+
+.styled-text {
+    font-weight: bold;
+    color: blue;
+    font-size: 1.2em;
+}
+
+.outer-container {
+    margin-top: 5rem;
+    /* background-color: #BB885D; */
+    padding: 20px;
+
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 1);
+}
+
+.container {
+    background: #232323;
+    padding: 50px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    
+}
+
+h1 {
+    font-family: 'Times New Roman', sans-serif;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    color: #BB885D;
+    text-shadow: 2px 2px 4px #000;
+}
+
+
+h2 {
+    font-family: 'Lucida Calligraphy', sans-serif;
+    font-size: 18px;
+    text-align: center;
+    color: #BB885D;
+    text-shadow: 2px 2px 4px #000;
+}
+
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+    font-weight: bold;
+}
+
+
+input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+
+/* CSS */
+.button-85 {
+    padding: 0.6em 2em;
+    border: none;
+    outline: none;
+    color: rgb(255, 255, 255);
+    background: #111;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.button-85:before {
+    content: "";
+      background: linear-gradient(45deg,
+            #ff0000,
+            #ff7300,
+            #fffb00,
+            #48ff00,
+            #00ffd5,
+            #002bff,
+            #7a00ff,
+            #ff00c8,
+            #ff0000);
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    -webkit-filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing-button-85 20s linear infinite;
+    transition: opacity 0.3s ease-in-out;
+    border-radius: 10px;
+}
+
+@keyframes glowing-button-85 {
+    0% {
+        background-position: 0 0;
+    }
+
+    50% {
+        background-position: 400% 0;
+    }
+
+    100% {
+        background-position: 0 0;
+    }
+}
+
+.button-85:after {
+    z-index: -1;
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #222;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+#imageContainer {
+    text-align: center;
+    margin-top: 90px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+#result {
+    font-size: 16px;
+    color: #fff;
+    white-space: pre-line;
+}
+
+label {
+    font-family: 'Lucida Calligraphy', sans-serif;
+    font-size: 30;
+    color: #BB885D  ;
+}
+.ay{
+  color: #fff;
+}
+span {
+    padding: 2px;
+    border-radius: 5px;
+    background-color: #BB885D;
+}
+
+#ptInput {
+    box-sizing: border-box;
+}
+body.corner-hit {
+    /* Add styles for the background change */
+   
+    
+    background: linear-gradient(90deg, rgba(255, 0, 0, 1) 0%, rgba(255, 115, 0, 1) 26%, rgba(255, 251, 0, 1) 100%);
+  }
+
+  .floating-name {
+    position: fixed;
+    /* Use fixed instead of absolute for a floating effect */
+    top: 0;
+    /* Adjust the top position to 0 to make it hit the top edge */
+    left: 0;
+    /* Adjust the left position to 0 to make it hit the left edge */
+    font-size: 24px;
+    color: #fff;
+    white-space: nowrap;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Optional: Add a background color for better visibility */
+    padding: 10px;
+    /* Optional: Add padding for better aesthetics */
+    border-radius: 5px;
+    /* Optional: Add border-radius for rounded corners */
+  }
+
+  .small-note {
+    font-size: smaller;
+}
+
+/* for preloading tag */
+
+#preloading{
+    background: #000;
+    background-size: 10%;
+    text-align: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    z-index: 100;
+}
+
+body {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  font-family: Montserrat;
+}
+
+.wrap {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.text {
+  color: #FEEAB7;
+  display: inline-block;
+  margin-left: 5px;
+}
+
+.bounceball {
+  position: relative;
+  display: inline-block;
+  height: 37px;
+  width: 15px;
+}
+.bounceball:before {
+  position: absolute;
+  content: "";
+  display: block;
+  top: 0;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: #BB885D;
+  transform-origin: 50%;
+  -webkit-animation: bounce 500ms alternate infinite ease;
+          animation: bounce 500ms alternate infinite ease;
+}
+
+@-webkit-keyframes bounce {
+  0% {
+    top: 30px;
+    height: 5px;
+    border-radius: 60px 60px 20px 20px;
+    transform: scaleX(2);
+  }
+  35% {
+    height: 15px;
+    border-radius: 50%;
+    transform: scaleX(1);
+  }
+  100% {
+    top: 0;
+  }
+}
+
+@keyframes bounce {
+  0% {
+    top: 30px;
+    height: 5px;
+    border-radius: 60px 60px 20px 20px;
+    transform: scaleX(2);
+  }
+  35% {
+    height: 15px;
+    border-radius: 50%;
+    transform: scaleX(1);
+  }
+  100% {
+    top: 0;
+  }
+}
+
+
+.back-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 10px 15px;
+  background-color: #BB885D;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}

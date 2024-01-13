@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MonoAlphabetic Cipher</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+      <div id="preloading">
+        <div class="wrap">
+          <div class="loading">
+            <div class="bounceball"></div>
+            <div class="text">MonoAlphabetic Calculator is now OPENING</div>
+          </div>
+        </div>
+      </div>
+      <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h3>What is MonoAlphabetic Cipher?</h3><br>
+            <p>
+          A Monoalphabetic cipher is a basic way of scrambling letters in a message. Each letter in the original message is replaced with another letter in a consistent way. For example, in a Caesar cipher, each letter is shifted by a fixed amount. While easy to understand, these ciphers are not very secure because they follow predictable patterns. They are often used for learning about encryption but are not recommended for serious use.</p>
+        </div>  
+    </div>
+        <a href="/src/components/index.html" class="back-button">Back to Main Page</a>
+    <div class="container">
+      <!-- First Content -->
+      <div class="home">
+        <!-- navigation -->
+        <div class="nav">
+          <div class="logo text-lg">
+            <h2>Mono</h2>
+          </div>
+          <div class="links">
+            <ul>
+              <li><a href="#affine">Affine</a></li>
+              <span> | </span>
+              <li><a href="#keyword">Keyword</a></li>
+              <span> | </span>
+              <li><a href="#columnar">Columnar</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="content">
+          <h1 style="font-size: 65px;">MonoAlphabetic Substitution</h1>
+          <p style="font-size:20px;">"Ciphered Elegance: The Enigma of Monoalphabetic <br> Substitution"</p>
+          <button class="btn">Get Started</button>
+        </div>
+        <!-- End of navigation -->
+      </div>
+      <!-- End of first content -->
+
+      <!-- Affine -->
+      <div id="affine" class="affine">
+        <!-- column one -->
+        <div class="column-one">
+          <div class="inputBox">
+            <textarea
+              id="inputText"
+              rows="5"
+              placeholder="Input Text"
+              class="input preview"
+             style="color: white;"></textarea>
+          </div>
+          <div class="buttons">
+            <button id="encodeButton" class="enter">Encrypt</button>
+            <button id="decodeButton" class="enter">Decrypt</button>
+          </div>
+        </div>
+        <!-- column two -->
+        <div class="column-two">
+          <div class="col-two-context preview">
+            <div class="first-row">
+              <div class="left">
+                <div class="inputBoxes">
+                  <h1 class="head">Affine Substitution</h1>
+                  <p class="text-xl">Plaintext:</p>
+                  <input
+                    type="text"
+                    value="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                    readonly
+                  />
+                </div>
+                <div class="inputBoxes">
+                  <p class="text-xl">Ciphertext:</p>
+                  <input
+                    id="cipherInput"
+                    type="text"
+                    required="required"
+                    value="BCDEFGHIJKLMNOPQRSTUVWXYZA"
+                  />
+                  <p id="errorMessage" class="error-message"></p>
+                  <button class="enter generate">Generate</button>
+                  <div class="inputBoxes">
+                    <p class="text-xl up">Output Text:</p>
+                    <textarea readonly rows="2" class="output"></textarea>
+                  </div>
+                </div>
+              </div>
+              <div class="right">
+                <p class="text-2xl">Create a Substitution key</p>
+                <div>
+                  <p class="text-xl up">· Cipher Text</p>
+                  <p
+                    id="cipherDisplay"
+                    class="cipher-display text-lg spacing ml"
+                  ></p>
+                </div>
+                <div>
+                  <p class="text-xl up">· Corresponding Alphabet</p>
+                  <p class="text-lg spacing ml">- ABCDEFGHIJKLMNOPQRSTUVWXYZ</p>
+                </div>
+                <p id="inputDisplay" class="input-display text-lg up spacing">
+                  Now, you can use this key to encrypt your plaintext
+                </p>
+                <a href="#" id="AAafine" class="example text-xl mt"
+                  >Click for Example</a
+                >
+                <div id="myAffine" style="display: none;word-wrap: break-word;">
+                  <span class="closeAffine" onclick="closeAffine()"
+                    >&times;</span
+                  >
+                  <img src="./images/affine.png" alt="Image description" />
+                </div>
+              </div>
+            </div>
+            <div class="second-row">
+              <div class="second-content">
+                <p class="text-xl">Encrypt/Decrypt the Plaintext</p>
+                <p id="inputMappings" class="input-mappings text-lg"></p>
+                <hr />
+
+                <p class="text-xl mt spacing" id="outputParagraph">
+                  Using the given monoalphabetic subsitution key the output is
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End of Affine -->
+
+      <!-- Start of Keyword -->
+      <div id="keyword" class="keyword">
+        <div class="ktop">
+          <h1 class="text-3xl">Via Keyword Substitution</h1>
+        </div>
+        <!-- Start First Box -->
+        <div class="first-box text-xl preview">
+          <div>
+            <p>Keyword:</p>
+            <textarea
+              id="keywordInput"
+              rows="2"
+              placeholder="Input Keyword"
+              class="kinput"
+              pattern="[^\s]+"
+            ></textarea>
+          </div>
+          <div>
+            <p>Text:</p>
+            <textarea
+              id="KinputText"
+              rows="5"
+              placeholder="Input Text"
+              class="kinput"
+            ></textarea>
+          </div>
+
+          <div class="Kbuttons">
+            <button id="KencodeButton" class="enter">Encrypt</button>
+            <button id="KdecodeButton" class="enter">Decrypt</button>
+            <span id="KerrorMessage" class="error"></span>
+          </div>
+        </div>
+        <!-- End first Box -->
+
+        <!-- Start small box -->
+        <div class="small-box preview">
+          <p class="text-xl up">Output Text:</p>
+          <textarea readonly rows="3" id="output" class="Koutput"></textarea>
+        </div>
+
+        <div class="second-box preview">
+          <div class="KinputBoxes">
+            <p class="text-xl">Plaintext:</p>
+            <input type="text" value="ABCDEFGHIJKLMNOPQRSTUVWXYZ" readonly />
+          </div>
+          <div class="KinputBoxes">
+            <p class="text-xl">Cipher Alphabet:</p>
+            <input id="KcipherInput" type="text" />
+          </div>
+          <!-- <button class="enter Kgenerate">Generate</button> -->
+          <div class="keyWord text-xl mt">
+            <p>Keyword: <span class="mt" id="keywordDisplay"></span></p>
+          </div>
+          <div class="Ksteps mt text-xl">
+            <div class="alpha">
+              <p class="mr">Create the Cipher Alphabet from the Keyword:</p>
+              <span id="cipherAlphabetDisplay"></span>
+            </div>
+            <p class="mt">Encrypting/Decrypting the Message</p>
+            <div id="KinputMappings" class="mt"></div>
+            <hr />
+            <p class="mt" id="outputDisplay">
+              Using the given Cipher Alphabet from the keyword the output is
+            </p>
+
+            <a href="#" id="KKkeyword" class="example text-xl mt"
+              >Click for Example</a
+            >
+            <div id="myKeyword" style="display: none">
+              <span class="closeKeyword" onclick="closeKeyword()">&times;</span>
+              <img src="./images/keyword.jpg" alt="Image description" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End of Keyword -->
+
+      <!-- Start of Columnar -->
+      <div id="columnar" class="columnar">
+        <div class="Ckeyword styleInput text-xl preview">
+          <p>Keyword:</p>
+          <textarea
+            id="Ckeyword"
+            rows="2"
+            placeholder="Input Keyword"
+            oninput="CupdateTable()"
+            class="kinput"
+          ></textarea>
+        </div>
+        <div class="Cinput preview styleInput text-xl">
+          <p>Text:</p>
+          <textarea
+            id="Cplaintext"
+            rows="4"
+            placeholder="Input Text"
+            class="kinput"
+          ></textarea>
+
+          <div class="Kbuttons">
+            <button id="Cencrypt-btn" class="enter mr">Encrypt</button>
+            <button id="Cdecrypt-btn" class="enter">Decrypt</button>
+            <span id="KerrorMessage" onclick="Cdecrypt()" class="error"></span>
+          </div>
+          <div class="Cmt" style="color: white">
+            <p class="text-xl up">Output Text:</p>
+            <textarea
+              id="Cresult"
+              class="CoutputText"
+              readonly
+              rows="5"
+            ></textarea>
+          </div>
+        </div>
+        <!-- Big Box -->
+        <div class="Cbox preview">
+          <p class="text-3xl mb spacing">Alphabet Mixing</p>
+          <div class="KinputBoxes">
+            <p class="text-xl">Plaintext:</p>
+            <input type="text" value="ABCDEFGHIJKLMNOPQRSTUVWXYZ" readonly />
+          </div>
+          <div class="KinputBoxes" id="Cdisplay">
+            <p class="text-xl">Cipher Alphabet:</p>
+            <input id="CcipherInput" type="text" />
+          </div>
+          <p id="Ckeyword-display" class="text-2xl spacing mb-minus"></p>
+          <div id="Calphabets-container" class="text-2xl mt spacing">
+            Create the Transcribing Column
+          </div>
+          <div id="Ctable-container" class="text-xl"></div>
+          <p class="text-2xl">Encrypting/Decrypting the Message</p>
+          <div id="Cmapping-container" class="Coder text-xl"></div>
+
+          <a href="#" id="columnars" class="example text-xl"
+            >Click for Example</a
+          >
+          <div id="myColumnar" style="display: none">
+            <span class="closeColumnar" onclick="closeModal()">&times;</span>
+            <img src="./images/columnar.png" alt="Image description" />
+          </div>
+        </div>
+      </div>
+      <!-- end of columnar -->
+    </div>
+    <script src="affine.js"></script>
+
+    <script>
+      //Columnar
+
+      function CcreateTranspositionTable(Ckeyword) {
+        const Calphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        const CuniqueChars = Array.from(new Set(Ckeyword + Calphabet));
+
+        const CuniqueKeywordChars = Array.from(new Set(Ckeyword));
+
+        const CnumColumns = CuniqueKeywordChars.length; // Use the unique keyword length as the number of columns
+        const CnumRows = Math.ceil(CuniqueChars.length / CnumColumns);
+
+        const Ctable = [];
+        for (let i = 0; i < CnumRows; i++) {
+          const Crow = [];
+          for (let j = 0; j < CnumColumns; j++) {
+            const Cchar = CuniqueChars[i * CnumColumns + j];
+            if (Cchar !== undefined) {
+              Crow.push(Cchar);
+            }
+          }
+          Ctable.push(Crow);
+        }
+
+        return Ctable;
+      }
+
+      function CdisplayTranspositionTable(Ctable) {
+        const CtableContainer = document.getElementById('Ctable-container');
+        CtableContainer.innerHTML = '';
+
+        for (let i = 0; i < Ctable.length; i++) {
+          const CrowElement = document.createElement('div');
+          CrowElement.textContent = Ctable[i].join(' ');
+
+          CtableContainer.appendChild(CrowElement);
+        }
+      }
+
+      function CcreateCipherAlphabet(Ctable) {
+        const CcipherAlphabet = [];
+
+        for (let i = 0; i < Ctable[0].length; i++) {
+          for (let j = 0; j < Ctable.length; j++) {
+            const Cchar = Ctable[j][i];
+            if (Cchar !== undefined && !CcipherAlphabet.includes(Cchar)) {
+              CcipherAlphabet.push(Cchar);
+            }
+          }
+        }
+
+        return CcipherAlphabet.join('');
+      }
+
+      function CupdateTable() {
+        const Ckeyword = document
+          .getElementById('Ckeyword')
+          .value.toUpperCase()
+          .replace(/\s/g, '');
+
+        const Cplaintext = document
+          .getElementById('Cplaintext')
+          .value.toUpperCase();
+
+        if (Ckeyword === '' && Cplaintext === '') {
+          document.getElementById('Cmapping-container').style.display = 'none';
+          document.getElementById('Ctable-container').style.display = 'none';
+          return;
+        }
+
+        document.getElementById('Ckeyword-display').textContent =
+          'Keyword: ' + Ckeyword;
+
+        const CtranspositionTable = CcreateTranspositionTable(Ckeyword);
+
+        const CplainAlphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        const CcipherAlphabet = CcreateCipherAlphabet(CtranspositionTable);
+
+        const CalphabetsContainer = document.getElementById('Cdisplay');
+        Cdisplay.innerHTML = `
+              <p class="text-xl">Cipher Alphabet:</p>
+                  <input id="CcipherInput" value="${CcipherAlphabet}"type="text" />
+
+          `;
+        CdisplayTranspositionTable(CtranspositionTable);
+
+        displayMapping(CplainAlphabet, CcipherAlphabet, CtranspositionTable);
+        document.getElementById('Cmapping-container').style.display = 'block';
+      }
+
+      function displayMapping(
+        plainAlphabet,
+        cipherAlphabet,
+        transpositionTable
+      ) {
+        const mappingContainer = document.getElementById('Cmapping-container');
+        mappingContainer.innerHTML = '';
+
+        const maxMappings = 5;
+
+        for (
+          let i = 0;
+          i < Math.min(transpositionTable[0].length, maxMappings);
+          i++
+        ) {
+          const mappingElement = document.createElement('div');
+          const plainChar = transpositionTable[0][i];
+          const cipherChar = cipherAlphabet[i];
+          mappingElement.textContent = `${plainChar} -> ${cipherChar}`;
+          mappingContainer.appendChild(mappingElement);
+        }
+
+        if (transpositionTable[0].length > maxMappings) {
+          const remainingMappingsElement = document.createElement('div');
+          remainingMappingsElement.textContent = 'And so on...';
+          mappingContainer.appendChild(remainingMappingsElement);
+        }
+      }
+
+      function CencryptWithTransposition(Cplaintext, Ctable) {
+        const Calphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        const CcipherAlphabet = CcreateCipherAlphabet(Ctable);
+
+        const CencryptedChars = [];
+
+        for (let i = 0; CencryptedChars.length < Cplaintext.length; i++) {
+          for (let j = 0; j < Ctable.length; j++) {
+            const Cchar = Ctable[j][i];
+            if (Cchar !== undefined) {
+              const Cindex = Calphabet.indexOf(Cchar);
+              if (Cindex !== -1) {
+                CencryptedChars.push(CcipherAlphabet[Cindex]);
+              }
+            }
+          }
+        }
+
+        return CencryptedChars.join('');
+      }
+
+      function CupdateUI(Cplaintext, Ctable) {
+        const Calphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        const CcipherAlphabet = CcreateCipherAlphabet(Ctable);
+
+        const CencryptedChars = [];
+
+        for (let i = 0; i < Cplaintext.length; i++) {
+          const Cchar = Cplaintext[i];
+          const Cindex = Calphabet.indexOf(Cchar);
+          if (Cindex !== -1) {
+            CencryptedChars.push(CcipherAlphabet[Cindex]);
+          } else {
+            CencryptedChars.push(Cchar);
+          }
+        }
+
+        return CencryptedChars.join('');
+      }
+
+      function Cencrypt() {
+        const Cplaintext = document
+          .getElementById('Cplaintext')
+          .value.toUpperCase();
+        const Ckeyword = document
+          .getElementById('Ckeyword')
+          .value.toUpperCase()
+          .replace(/\s/g, '');
+
+        document.getElementById('Ckeyword-display').textContent =
+          'Keyword: ' + Ckeyword;
+
+        const CtranspositionTable = CcreateTranspositionTable(Ckeyword);
+
+        CupdateUI(Cplaintext, CtranspositionTable);
+
+        const CcipherText = CupdateUI(Cplaintext, CtranspositionTable);
+
+        document.getElementById('Cresult').innerHTML = CcipherText;
+        document.getElementById('Ctable-container').style.display = 'block';
+        document.getElementById('Cmapping-container').style.display = 'block';
+      }
+
+      function Cdecrypt() {
+        const CcipherText = document
+          .getElementById('Cplaintext')
+          .value.toUpperCase();
+        const Ckeyword = document
+          .getElementById('Ckeyword')
+          .value.toUpperCase()
+          .replace(/\s/g, '');
+
+        const CtranspositionTable = CcreateTranspositionTable(Ckeyword);
+
+        const CdecryptedText = CdecryptWithTransposition(
+          CcipherText,
+          CtranspositionTable
+        );
+
+        document.getElementById('Cresult').innerHTML = CdecryptedText;
+        document.getElementById('Ctable-container').style.display = 'block';
+        document.getElementById('Cmapping-container').style.display = 'block';
+      }
+
+      function CdecryptWithTransposition(CcipherText, Ctable) {
+        const Calphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        const CcipherAlphabet = CcreateCipherAlphabet(Ctable);
+
+        const CdecryptedChars = [];
+
+        let Cindex = 0;
+        for (let i = 0; i < Ctable[0].length; i++) {
+          for (let j = 0; j < Ctable.length; j++) {
+            const Cchar = Ctable[j][i];
+            if (Cchar !== undefined) {
+              CdecryptedChars.push(
+                Calphabet[CcipherAlphabet.indexOf(CcipherText[Cindex++])]
+              );
+            }
+          }
+        }
+
+        return CdecryptedChars.join('');
+      }
+
+      document
+        .getElementById('Ckeyword')
+        .addEventListener('input', CupdateTable);
+      document
+        .getElementById('Cencrypt-btn')
+        .addEventListener('click', Cencrypt);
+      document
+        .getElementById('Cdecrypt-btn')
+        .addEventListener('click', Cdecrypt);
+    </script>
+  </body>
+</html>
