@@ -1,5 +1,8 @@
 
-@import url(https://fonts.googleapis.com/css?family=Montserrat);
+@font-face {
+	font-family: montserratRegular;
+	src: url(/src/utils/assets/fonts/Montserrat-Regular.ttf);
+}
 
 
 .modal {
@@ -267,7 +270,7 @@ body {
   position: relative;
   width: 100%;
   height: 100vh;
-  font-family: Montserrat;
+  font-family: montserratRegular;
 }
 
 .wrap {

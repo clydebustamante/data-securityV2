@@ -3,17 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css?family=Exo" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <title>Playfair Cipher Example</title>
 
     
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap');
+@font-face {
+	font-family: KdamThmorPro;
+	src: url(/src/utils/assets/fonts/KdamThmorPro-Regular.ttf);
+}
+
+@font-face {
+	font-family: exoRegular;
+	src: url(/src/utils/assets/fonts/Exo-Regular.ttf);
+}
+
 
 *{
-    font-family: 'Kdam Thmor Pro', sans-serif;
+    font-family: KdamThmorPro, sans-serif;
 } 
        body {
             margin: 0;
@@ -107,7 +115,7 @@
     width: auto;
     clear: both;
     text-align: center;
-    font-family: 'Exo';
+    font-family:exoRegular;
   }
   
   .letter{
@@ -188,7 +196,7 @@
     width: 280px;
     clear: both;
     text-align: center;
-    font-family: 'Exo';
+    font-family: exoRegular;
   }
   
   

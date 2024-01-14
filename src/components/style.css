@@ -19,13 +19,13 @@ html, body {
 
 @font-face {
 	font-family: GreatSejagad;
-	src: url(../utils/assets/fonts/Great_Sejagad.ttf);
+	src: url(..//utils/assets/fonts/Great_Sejagad.ttf);
 }
 
 
 @font-face {
 	font-family: montserratRegular;
-	src: url(../utils/assets/fonts/Montserrat-Regular.ttf);
+	src: url(..//utils/assets/fonts/Montserrat-Regular.ttf);
 }
 
 .container {
