@@ -22,6 +22,12 @@ html, body {
 	src: url(../utils/assets/fonts/Great_Sejagad.ttf);
 }
 
+
+@font-face {
+	font-family: montserratRegular;
+	src: url(../utils/assets/fonts/Montserrat-Regular.ttf);
+}
+
 .container {
 	width: 1355px;
 	height: 100%;
@@ -272,7 +278,6 @@ button.slider__button:hover {
 
 
 /* for preloading tag */
-@import url(https://fonts.googleapis.com/css?family=Montserrat);
 
 #preloading{
     background: #000;
@@ -289,7 +294,7 @@ body {
   position: relative;
   width: 100%;
   height: 100vh;
-  font-family: Montserrat;
+  font-family: montserratRegular;
 }
 
 .wrap {
